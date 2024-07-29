@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    body {
+        background-image: url('https://img.freepik.com/premium-vector/green-background-with-blue-circle-word-ombre-it_6091-1964.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        background-color: rgba(133, 182, 163, 0.8);
+        margin: 70px;
+        padding: 20px;
+        border-radius: 20px;
+        margin-left: 600px;
+        margin-right: 600px;
+
+    }
+</style>
+
+
+<div class="container upload-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="upload-form">
+                <h1 class="text-center" style="text-align: center;"><b><i><u> Upload Profile </u></i></b></h1>
+
+                <form method="post" enctype="multipart/form-data" style="border: cornflowerblue; border-radius: 10px;">
+
+                    {% csrf_token %}
+
+                    <div class="form-group" style="font-size: larger; text-align: center;">
+                        <label for="profile_pic">Choose Profile Picture</label>
+                        <input type="file" class="form-control-file" id="profile_pic" name="profile_pic" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Upload</button>
+                    <div class="profile-pic-section" style="text-align: center;">
+                        <button type="submit" class="btn btn-danger" name="action" value="delete">Delete</button>
+                    </div>
+                    <br>
+                    <div class="profile-info-section" style="text-align: center; font-size: larger;">
+                        <label for="username">Username :</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" >
+                        <br>
+                        <label for="password">Password :</label>
+                        <input type="password" class="form-control"  id="password" name="password">
+                        <br>
+                        <label for="gender">Gender :</label>
+                        <select id="gender" class="form-control" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <br>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Upload</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

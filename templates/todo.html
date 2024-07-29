@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<style>
+    body {
+        background-image: url('https://img.freepik.com/premium-vector/green-background-with-blue-circle-word-ombre-it_6091-1964.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        background-color: rgba(133, 182, 163, 0.8);
+        margin: 60px;
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+</style>
+
+
+<!-- Main Content -->
+<div class="container mt-5 " style="font-size: larger;">
+    <h2 class="mb-4" style="text-align: center; font-size: xx-large;"><b><u>Your Todo List</u> :</b></h2>
+    <table class="table table-hover" style="background-color: white; font-size: large;">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" style="color: black; font-size: larger;">#</th>
+                <th scope="col" style="color: black; font-size: larger; text-decoration: underline; text-align: center;">Task - </th>
+                <th scope="col" style="color: black; font-size: larger; text-decoration: underline;">Created At - </th>
+                <th scope="col" style="color: black; font-size: larger; text-decoration: underline; text-align: center;">ACTIONS - </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for todo in result %}
+
+
+            <tr>
+                <th scope="row">{{ forloop.counter }}.</th>
+                <td style="font-size: larger;">{{ todo.task }}</td>
+                <td style="font-size: larger;">{{ todo.created_at }}</td>
+                <td style="font-size: larger;">
+                    <a href="{% url 'update_todo' todo.id %}" class="btn btn-success" style="margin-right: 15px;"> Update </a>
+                    <a href="{% url 'delete_todo' todo.id  %}" class="btn btn-danger" style="margin-right: 15px;"> DELETE</a>
+                    <a href="{% url 'mark_complete' todo.id  %}" class="btn btn-outline-primary"> Mark Complete </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<a href="{% url 'add_todo' %}" class="btn btn-primary mb-3"
+    style="margin-left: 35vh; margin-left: 850px; font-size: x-large;  ">Add Todo</a>
+
+
+{% endblock %}

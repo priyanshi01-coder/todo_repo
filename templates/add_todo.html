@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<style>
+    body {
+        background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yODMtbnVubnktMTYxLWcuanBn.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        background-color: rgba(204, 162, 134, 0.8);
+        margin: 90px;
+        padding: 20px;
+        border-radius: 50px;
+        margin-left: 500px;
+        margin-right: 500px;
+
+
+    }
+</style>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h1 class="mb-4" style="text-align: center;"><b><u>Add a New Todo</u> : </b></h1>
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="task"
+                style="font-size: larger; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: black; "><b> Task : </b></label>
+            <input type="text" class="form-control" id="task" placeholder="Enter task" rows="5" name="task" required>
+        </div>
+        <div class="form-group">
+            <label for="due-date"
+                style="font-size: larger; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: black; "><b> Created at : </b></label>
+            <input type="date" class="form-control" id="created_at" name="created_at" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-left: 430px; font-size: larger;">Add Task</button>
+    </form>
+</div>
+
+{% endblock %}

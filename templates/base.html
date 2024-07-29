@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="opacity: 70% ;">
+
+        <a class="navbar-brand" href="{% url 'home' %}" style="font-size: x-large; color: rgb(0, 0, 0);">
+            <img src="https://tasktide.co/wp-content/uploads/2024/01/cropped-tasktide-01.png"
+                alt="Logo" style="height: 40px; margin-right: 5px;">
+
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn  btn-lg" href="{% url 'about' %}  " style="font-size: x-large; color: black;"><b><u> About</u></b></a>
+                    <a class="btn btn-primary" href="{% url 'upload_profile' %}" style="font-size: large; color: black;"><b><u> Upload Profile </u></b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+
+
+        {% block body %}
+
+
+        {% endblock %}
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-light text-center mt-5 py-3 fixed-bottom" style="opacity: 70%;">
+        <div class="container">
+            <span class="text-muted" style="font-style: italic;">&copy; 2024 Todo Application. All rights
+                reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
